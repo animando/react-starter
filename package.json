@@ -6,10 +6,13 @@
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "^4.0.0"
+    "react-scripts": "^4.0.0",
+    "serve": "^11.3.2"
   },
   "scripts": {
-    "start": "react-scripts start"
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build"
   },
   "devDependencies": {
     "eslint": "^7.13.0",
