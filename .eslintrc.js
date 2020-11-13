@@ -18,5 +18,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    'import/prefer-default-export': 0,
+    'react/prop-types': 'off',
   },
 };

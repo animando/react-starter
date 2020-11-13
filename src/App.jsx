@@ -1,5 +1,16 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 
-const App = () => <p>Hello there from codesandbox.io</p>;
+import configureStore from './store';
+import Counter from './Counter';
+
+const store = configureStore();
+
+const App = () => (
+  <Provider store={store}>
+    <p>Hello there from codesandbox.io</p>
+    <Counter />
+  </Provider>
+);
 
 export default App;
