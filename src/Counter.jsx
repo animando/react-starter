@@ -1,16 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getValue } from './store/example/exampleSelectors';
+import { getValue } from './store/counter/counterSelectors';
 import { Button } from './components';
-import { decrement, increment } from './store/example/exampleReducer';
+import { decrement, increment } from './store/counter/counterReducer';
 
 const CounterView = ({ value, onIncrement, onDecrement }) => (
   <div>
-    <p>
-      Value:
-      {' '}
-      {value}
-    </p>
+    Value: {value}
     <Button onClick={onIncrement} text="Increment" />
     <Button onClick={onDecrement} text="Decrement" />
   </div>
@@ -23,6 +19,8 @@ const mapDispatchToProps = (dispatch) => ({
   onIncrement: () => dispatch(increment()),
   onDecrement: () => dispatch(decrement()),
 });
-const ConnectedCounter = connect(mapStateToProps, mapDispatchToProps)(CounterView);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+const ConnectedCounter = connector(CounterView);
+ConnectedCounter.displayName = 'ConnectedCounter';
 
 export default ConnectedCounter;
